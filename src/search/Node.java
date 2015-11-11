@@ -16,7 +16,7 @@ public class Node {
 		if(parent == null){
 			path = 0;
 		} else {
-			path = parent.path + action.cost(parent, action, this);
+			path = parent.path + action.cost();
 		}
 	}
 

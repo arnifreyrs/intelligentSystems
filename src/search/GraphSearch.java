@@ -23,13 +23,13 @@ public class GraphSearch implements Search {
                 return node;
             }
 //            Keep track of explored states
-            exploredStates.add(node.state);
             for (Action action : node.state.getApplicableActions()) {
                 State newState = node.state.getActionResult(action);
                 Node expandedNode = new Node(node, action, newState, node.nodeValue);
 
 //              We want to add this node to the frontier if it is not already there and its state has yet been explored
-                if(!frontier.contains(expandedNode) && !exploredStates.contains(newState)) {
+                if(!exploredStates.contains(newState)) {
+                    exploredStates.add(newState);
                     len++;
                     frontier.add(expandedNode);
                 }

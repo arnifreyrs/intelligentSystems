@@ -17,8 +17,4 @@ public class Road implements Action {
 		return length;
 	}
 
-	@Override
-	public int cost(Node from, Action action, Node to) {
-		return length;
-	}
 }
