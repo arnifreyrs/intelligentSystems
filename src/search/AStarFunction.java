@@ -10,6 +10,7 @@ public class AStarFunction implements NodeFunction {
 
     @Override
     public int f(Node n) {
+//        f(n) = g(n) + h(n)
         return n.path + heuristicFunction.f(n);
     }
 }

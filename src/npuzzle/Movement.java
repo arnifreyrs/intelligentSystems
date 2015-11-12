@@ -4,6 +4,7 @@ import search.Action;
 import search.Node;
 
 public enum Movement implements Action {
+	//All moves in the N-puzzle are equal and cost 1
 	UP(-1, 0) {
 		@Override
 		public int cost() {

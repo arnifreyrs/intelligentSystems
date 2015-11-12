@@ -22,14 +22,14 @@ public class nPuzzle {
         generateSearch(initialConfiguration, "A* GRAPH SEARCH", bestFirstFrontier, new GraphSearch(bestFirstFrontier), new TilesGoalTest());
 
 //      Here I initialize frontiers and generate searches
-        Frontier breadthFirstFrontier = new BreadthFirstFrontier();
-        generateSearch(initialConfiguration, "Breadth First TREE Search", breadthFirstFrontier, new TreeSearch(breadthFirstFrontier), new TilesGoalTest());
+//        Frontier breadthFirstFrontier = new BreadthFirstFrontier();
+//        generateSearch(initialConfiguration, "Breadth First TREE Search", breadthFirstFrontier, new TreeSearch(breadthFirstFrontier), new TilesGoalTest());
 
-        breadthFirstFrontier = new BreadthFirstFrontier();
-        generateSearch(initialConfiguration, "Breadth First GRAPH Search", breadthFirstFrontier, new GraphSearch(breadthFirstFrontier), new TilesGoalTest());
+//        breadthFirstFrontier = new BreadthFirstFrontier();
+//        generateSearch(initialConfiguration, "Breadth First GRAPH Search", breadthFirstFrontier, new GraphSearch(breadthFirstFrontier), new TilesGoalTest());
 
-        Frontier depthFirstFrontier = new DepthFirstFrontier();
-        generateSearch(initialConfiguration, "Depth First GRAPH Search", depthFirstFrontier, new GraphSearch(depthFirstFrontier), new TilesGoalTest());
+//        Frontier depthFirstFrontier = new DepthFirstFrontier();
+//        generateSearch(initialConfiguration, "Depth First GRAPH Search", depthFirstFrontier, new GraphSearch(depthFirstFrontier), new TilesGoalTest());
 
 //        The depth first tree search runs infinitely and does not find a solution
 //        depthFirstFrontier = new DepthFirstFrontier();
@@ -50,7 +50,7 @@ public class nPuzzle {
         System.out.println();
 
         Node solution = search.findSolution(new Node(null, null, initialConfiguration, 0), goalTest);
-//        new NPuzzlePrinting().printSolution(solution);
+        new NPuzzlePrinting().printSolution(solution);
         System.out.println("Total number of nodes: " + search.numberOfNodes());
         System.out.println("Maximum number of nodes on the frontier: " + frontier.max());
         System.out.println();

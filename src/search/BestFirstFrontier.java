@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class BestFirstFrontier implements Frontier {
-
+//    PriorityQueue is needed for a breadth first search frontier
     private final PriorityQueue<Node> queue;
     private final NodeFunction nodeFunction;
     private int max = 0;
@@ -13,6 +13,7 @@ public class BestFirstFrontier implements Frontier {
         this.queue = new PriorityQueue<Node>(128, new Comparator<Node>() {
             @Override
             public int compare(Node o1, Node o2) {
+//                Use node value to compare nodes
                 return o1.nodeValue - o2.nodeValue;
             }
         });
