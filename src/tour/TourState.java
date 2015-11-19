@@ -55,7 +55,15 @@ public class TourState implements State {
         }
 
         for (City city : visitedCities) {
-            if(!other.visitedCities.contains(city)){
+            boolean otherVisitedCitiesContainsCity = false;
+            for (City otherVisitedCity : other.visitedCities) {
+                if(otherVisitedCity.getName().equals(city.getName())){
+                    otherVisitedCitiesContainsCity = true;
+                    break;
+                }
+            }
+
+            if(!otherVisitedCitiesContainsCity){
                 return false;
             }
         }
