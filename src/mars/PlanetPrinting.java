@@ -10,6 +10,11 @@ public class PlanetPrinting extends Printing {
         System.out.print("move ");
         System.out.print(((RoverMovement) action).name());
     }
+
+    /**
+     * prints a planet state, not accessible places are X, visited places are O, otherwise ' '
+     * @param state
+     */
     public void print(State state) {
         Planet planet=(Planet) state;
         int height = planet.height();

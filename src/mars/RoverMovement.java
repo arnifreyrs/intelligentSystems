@@ -3,6 +3,7 @@ package mars;
 import search.Action;
 
 public enum  RoverMovement implements Action {
+    //Each action is a movement up, down, right or left, and costs 1
     UP(-1, 0) {
         @Override
         public int cost() {
@@ -25,8 +26,7 @@ public enum  RoverMovement implements Action {
         }
     };
 
-    public final int roverRow;
-    public final int roverColumn;
+    public final int roverRow,roverColumn;
 
     private RoverMovement(int roverRow, int roverColumn) {
         this.roverRow = roverRow;

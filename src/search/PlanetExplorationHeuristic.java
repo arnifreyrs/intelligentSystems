@@ -3,6 +3,11 @@ package search;
 import mars.Planet;
 
 public class PlanetExplorationHeuristic implements NodeFunction {
+    /**
+     * Heuristic which is the difference of total accessible places and already visited places
+     * @param n a Node object that has access to the planet state and already visited places
+     * @return {Int} the difference of total accessible places and already visited places
+     */
     @Override
     public int f(Node n) {
         Planet planet = (Planet) n.state;

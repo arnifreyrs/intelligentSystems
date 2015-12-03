@@ -30,6 +30,7 @@ public class Planet implements State {
         this.batteryLife = batteryLife;
 
         visitedCoordinates = new LinkedHashSet<Pair<Integer, Integer>>();
+        //We add the initial coordinates to visited coordinates
         visitedCoordinates.add(new Pair<Integer, Integer>(initialRow, initialColumn));
     }
 
@@ -45,10 +46,10 @@ public class Planet implements State {
         if (offx>=0 && offy>=0 && offx<accessible.length && offy<accessible[0].length) return (accessible[offx][offy]==0);
         else return false;
     }
-    
+
+    //simple getters
     public int height() {return accessible.length;}
     public int width() {return accessible[0].length;}
-    public int getBatteryLife() {return batteryLife;}
     public Set<Pair<Integer, Integer>> getVisitedCoordinates() {
         return visitedCoordinates;
     }
@@ -57,9 +58,11 @@ public class Planet implements State {
     public Set<RoverMovement> getApplicableActions() {
         Set<RoverMovement> actions = new LinkedHashSet<RoverMovement>();
         for (RoverMovement movement : RoverMovement.values()) {
+            //find available actions
             int newRow = initialRow + movement.roverRow;
             int newColumn = initialColumn + movement.roverColumn;
             if(isAccessible(newRow, newColumn)){
+                //next square is accessible
                 actions.add(movement);
             }
         }
@@ -68,9 +71,10 @@ public class Planet implements State {
 
     @Override
     public State getActionResult(Action action) {
-        RoverMovement movement=(RoverMovement)action;
+        RoverMovement movement = (RoverMovement) action;
         int newRow = initialRow + movement.roverRow;
         int newColumn = initialColumn + movement.roverColumn;
+        //create a new set of visited coordinates and add the result coordinate from the action to it
         Set<Pair<Integer,Integer>> newVisitedCoordinates = new LinkedHashSet<Pair<Integer, Integer>>(visitedCoordinates);
         newVisitedCoordinates.add(new Pair<Integer, Integer>(newRow, newColumn));
         return new Planet(newVisitedCoordinates, newRow, newColumn, batteryLife - 1);
